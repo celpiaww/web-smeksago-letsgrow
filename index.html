@@ -7,12 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* TEMA WARNA BARU: DEEP PURPLE & NEON MAGENTA */
-            --bg-deep: #0a0118;      /* Ungu sangat gelap untuk background */
-            --bg-card: #160230;      /* Ungu gelap untuk kotak */
-            --primary: #d400ff;      /* Magenta Neon untuk aksen utama */
-            --secondary: #6a0dad;    /* Ungu Violet untuk gradient */
-            --glow: rgba(212, 0, 255, 0.5); /* Cahaya glow magenta */
+            --bg-deep: #0a0118;
+            --bg-card: #160230;
+            --primary: #d400ff;
+            --secondary: #6a0dad;
+            --glow: rgba(212, 0, 255, 0.5);
             --text-main: #ffffff;
             --text-dim: #b8a0d9;
         }
@@ -20,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--bg-deep); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
-        /* --- 1. NAVBAR & LOGO --- */
+        /* NAVBAR */
         .navbar {
             display: flex;
             align-items: center;
@@ -34,202 +33,65 @@
             backdrop-filter: blur(10px);
         }
         .nav-brand { display: flex; align-items: center; }
-        .nav-brand img { width: 45px; margin-right: 12px; filter: drop-shadow(0 0 5px var(--glow)); }
-        .nav-text h2 { font-size: 1rem; color: var(--primary); line-height: 1.2; font-weight: 700; text-shadow: 0 0 10px var(--glow); }
-        .nav-text p { font-size: 0.7rem; color: var(--text-dim); }
-        .nav-icon { font-size: 1.2rem; color: var(--primary); opacity: 0.8; }
+        .nav-brand img { width: 45px; margin-right: 12px; filter: drop-shadow(0 0 5px var(--glow)); border-radius: 50%; }
+        .nav-text h2 { font-size: 0.9rem; color: var(--primary); line-height: 1.2; font-weight: 700; }
+        .nav-text p { font-size: 0.65rem; color: var(--text-dim); }
 
-        /* --- 2. HERO SECTION --- */
+        /* HERO */
         .hero {
             padding: 80px 20px 60px;
             text-align: center;
             background: radial-gradient(circle at top, #2e0057, var(--bg-deep));
-            position: relative;
         }
-        .hero::before { content: ''; position: absolute; top: -50px; left: 50%; transform: translateX(-50%); width: 200px; height: 200px; background: var(--primary); filter: blur(100px); opacity: 0.2; }
-        
         .badge-hero { 
-            background: rgba(212, 0, 255, 0.1); 
-            color: var(--primary); 
-            padding: 6px 16px; 
-            border-radius: 20px; 
-            font-size: 0.7rem; 
-            font-weight: 600; 
-            border: 1px solid var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 0 10px var(--glow);
+            background: rgba(212, 0, 255, 0.1); color: var(--primary); padding: 6px 16px; 
+            border-radius: 20px; font-size: 0.7rem; font-weight: 600; border: 1px solid var(--primary);
+            text-transform: uppercase; box-shadow: 0 0 10px var(--glow);
         }
-        .hero h1 { font-size: 2.2rem; margin: 20px 0; font-weight: 700; line-height: 1.2; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .hero p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero h1 { font-size: 2rem; margin: 20px 0; font-weight: 700; line-height: 1.2; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Tombol Utama */
         .btn-glow { 
             background: linear-gradient(45deg, var(--secondary), var(--primary)); 
-            color: white; 
-            padding: 14px 30px; 
-            border-radius: 30px; 
-            text-decoration: none; 
-            font-weight: 600; 
-            display: inline-block; 
-            box-shadow: 0 4px 20px var(--glow); 
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            color: white; padding: 14px 30px; border-radius: 30px; text-decoration: none; 
+            font-weight: 600; display: inline-block; box-shadow: 0 4px 20px var(--glow); 
+            text-transform: uppercase; font-size: 0.8rem;
         }
-        .btn-glow:hover { transform: translateY(-3px); box-shadow: 0 6px 25px var(--primary); }
 
-        /* --- 3. STATISTIK BOX (GRID) --- */
-        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; margin-top: -30px; position: relative; z-index: 10; }
-        .stat-card { 
-            background: var(--bg-card); 
-            padding: 25px 20px; 
-            border-radius: 18px; 
-            text-align: center; 
-            border: 1px solid rgba(212, 0, 255, 0.1); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: 0.3s;
-        }
-        .stat-card:hover { border-color: var(--primary); transform: scale(1.03); }
-        .stat-card.large { grid-column: span 2; display: flex; align-items: center; justify-content: center; gap: 15px; }
-        .stat-card h2 { color: var(--primary); font-size: 2rem; font-weight: 700; text-shadow: 0 0 10px var(--glow); }
-        .stat-card p { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        /* STATS */
+        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; margin-top: -30px; }
+        .stat-card { background: var(--bg-card); padding: 20px; border-radius: 18px; text-align: center; border: 1px solid rgba(212, 0, 255, 0.1); }
+        .stat-card.large { grid-column: span 2; }
+        .stat-card h2 { color: var(--primary); font-size: 1.8rem; font-weight: 700; }
+        .stat-card p { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; }
 
-        /* --- 4. SECTIONS GENERAL --- */
+        /* SECTIONS */
         .section { padding: 60px 20px; }
-        .section-title { text-align: center; margin-bottom: 35px; font-size: 1.8rem; font-weight: 700; position: relative; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--primary); margin: 10px auto; border-radius: 2px; box-shadow: 0 0 10px var(--primary); }
-        .section-subtitle { text-align: center; color: var(--text-dim); font-size: 0.85rem; margin-top: -30px; margin-bottom: 40px; }
+        .section-title { text-align: center; margin-bottom: 35px; font-size: 1.6rem; font-weight: 700; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary); margin: 10px auto; border-radius: 2px; }
 
-        /* --- 5. PROFIL SEKOLAH --- */
-        .content-box { 
-            background: var(--bg-card); 
-            padding: 30px; 
-            border-radius: 20px; 
-            border: 1px solid rgba(212, 0, 255, 0.1); 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        /* FOTO GEDUNG SEKOLAH */
-        .school-img { 
-            width: 100%; 
-            height: 220px; 
-            border-radius: 15px; 
-            margin-bottom: 20px; 
-            border: 3px solid var(--secondary); 
-            object-fit: cover; 
-            box-shadow: 0 0 15px rgba(106, 13, 173, 0.5);
-        }
-        .info-label { color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; display: block; }
-        .content-box p { font-size: 0.9rem; color: #cbd5e0; text-align: justify; margin-bottom: 15px; opacity: 0.9; }
-        .content-box ul { list-style: none; margin-top: 15px; }
-        .content-box ul li { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
-        .content-box ul li::before { content: '👉'; color: var(--primary); }
+        .content-box { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(212, 0, 255, 0.1); }
+        .school-img { width: 100%; border-radius: 15px; margin-bottom: 20px; border: 2px solid var(--secondary); object-fit: cover; }
 
-        /* --- 6. PPDB SECTION --- */
-        .ppdb-box { 
-            background: linear-gradient(135deg, #1a0033, #330066); 
-            padding: 35px 25px; 
-            border-radius: 20px; 
-            border: 2px solid var(--primary); 
-            margin: 20px; 
-            text-align: center; 
-            position: relative;
-            box-shadow: 0 0 30px rgba(212, 0, 255, 0.3);
-        }
-        .ppdb-box::after { content: 'KOTA NGANJUK'; position: absolute; bottom: 10px; right: 15px; font-size: 0.6rem; color: rgba(255,255,255,0.2); letter-spacing: 2px; }
-        .ppdb-box h2 { color: #fff; margin-bottom: 10px; font-size: 1.6rem; text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-        .ppdb-box p { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px; }
-        .list-item { text-align: left; font-size: 0.85rem; margin: 12px 0; display: flex; align-items: center; gap: 12px; color: #fff; }
-        .list-item span { color: var(--primary); font-size: 1.1rem; }
+        /* JURUSAN WITH IMAGES */
+        .jurusan-container { display: flex; flex-direction: column; gap: 25px; }
+        .jurusan-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 0, 255, 0.1); }
+        .prodi-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 2px solid var(--primary); }
+        .prodi-info { padding: 20px; }
+        .prodi-info h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
+        .prodi-info p { font-size: 0.8rem; color: #cbd5e0; text-align: justify; }
 
-        /* Tombol Sekunder PPDB */
-        .btn-outline {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            border: 1px solid var(--text-dim);
-            color: var(--text-dim);
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            transition: 0.3s;
-        }
-        .btn-outline:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 0 10px var(--glow); }
+        /* PPDB */
+        .ppdb-box { background: linear-gradient(135deg, #1a0033, #330066); padding: 30px 20px; border-radius: 20px; border: 2px solid var(--primary); margin: 20px; text-align: center; }
+        .list-item { text-align: left; font-size: 0.8rem; margin: 10px 0; display: flex; align-items: center; gap: 10px; }
 
-        /* --- 7. JURUSAN (GRID & CARDS) --- */
-        .grid-container { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .jurusan-card { 
-            background: linear-gradient(145deg, #1a023a, #110129); 
-            padding: 25px; 
-            border-radius: 20px; 
-            border: 1px solid rgba(212, 0, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-        .jurusan-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 10px 25px rgba(212, 0, 255, 0.2); }
-        .jurusan-card::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 60px; height: 60px; background: var(--primary); filter: blur(40px); opacity: 0.3; }
-        
-        .card-category { color: var(--text-dim); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 5px; display: block; }
-        .jurusan-card h4 { color: #fff; margin-bottom: 10px; font-size: 1.1rem; font-weight: 600; }
-        .jurusan-card p { font-size: 0.8rem; color: rgba(203, 213, 224, 0.8); text-align: justify; }
+        /* EKSKUL */
+        .ekskul-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        .ekskul-card { background: var(--bg-card); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.03); }
+        .icon-circle { width: 45px; height: 45px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.2rem; }
 
-        /* --- 8. EKSTRAKURIKULER (SMALL CARDS) --- */
-        .ekskul-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        .ekskul-card { 
-            background: var(--bg-card); 
-            padding: 20px; 
-            border-radius: 15px; 
-            border: 1px solid rgba(255,255,255,0.03);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: 0.3s;
-        }
-        .ekskul-card:hover { border-color: var(--secondary); background: #1f0442; }
-        
-        /* IKON EKSKUL (BULAT) */
-        .icon-circle { 
-            width: 55px; height: 55px; 
-            background: linear-gradient(135deg, var(--bg-deep), var(--secondary)); 
-            border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            font-size: 1.6rem; 
-            margin-bottom: 15px;
-            border: 2px solid rgba(212, 0, 255, 0.2);
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        }
-        .ekskul-card h4 { color: #fff; font-size: 0.9rem; font-weight: 600; }
-
-        /* --- 9. FOOTER & KONTAK --- */
-        footer { background: #05000d; padding: 50px 20px 30px; border-top: 1px solid var(--accent); position: relative; }
-        footer::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(to right, transparent, var(--primary), transparent); box-shadow: 0 0 10px var(--primary); }
-        
-        .footer-title { color: var(--primary); font-size: 1.3rem; font-weight: 700; margin-bottom: 20px; }
-        .contact-info { font-size: 0.85rem; color: #cbd5e0; }
-        .contact-info p { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px; }
-        .contact-info strong { color: #fff; }
-        
-        /* SIMULASI MAPS */
-        .map-box { 
-            width: 100%; 
-            height: 180px; 
-            background: #110129; 
-            border-radius: 15px; 
-            margin-top: 25px; 
-            border: 2px solid var(--secondary);
-            display: flex; align-items: center; justify-content: center; 
-            color: var(--text-dim); 
-            font-size: 0.8rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-        }
-        .map-box::after { content: '📍'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2rem; filter: drop-shadow(0 0 10px var(--primary)); }
-        
-        .copyright { text-align: center; margin-top: 40px; font-size: 0.7rem; color: rgba(184, 160, 217, 0.5); border-top: 1px solid rgba(255,255,255,0.03); padding-top: 20px; }
+        /* FOOTER */
+        footer { background: #05000d; padding: 40px 20px; border-top: 1px solid var(--secondary); text-align: left; }
+        .map-frame { width: 100%; height: 250px; border-radius: 15px; border: 2px solid var(--primary); margin-top: 20px; }
 
     </style>
 </head>
@@ -237,137 +99,120 @@
 
     <div class="navbar">
         <div class="nav-brand">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Logo_SMK_Negeri_1_Gondang_Nganjuk.png/120px-Logo_SMK_Negeri_1_Gondang_Nganjuk.png" alt="Logo SMKN1G">
+            <img src="https://lh3.googleusercontent.com/d/1_9iEOnW3jYy9w_e8N7Zg3fGf_6W8XJ0X" alt="Logo">
             <div class="nav-text">
                 <h2>SMK Negeri 1 Gondang</h2>
                 <p>Gondang, Nganjuk • Jawa Timur</p>
             </div>
         </div>
-        <div class="nav-icon">🏫</div> </div>
+        <div style="font-size: 1.2rem;">✨</div>
+    </div>
 
     <div class="hero">
-        <span class="badge-hero">SMK BISA - SMK HEBAT</span>
-        <h1>Menyiapkan Lulusan Siap Kerja dan Kompeten</h1>
-        <p>Praktik intensif, kerja sama industri, dan program vokasi unggulan sesuai kebutuhan pasar kerja global. Terakreditasi A.</p>
-        <a href="#jurusan" class="btn-glow">Jelajahi Jurusan</a>
+        <span class="badge-hero">SMK NEGERI 1 GONDANG</span>
+        <h1>Menyiapkan Lulusan Siap Kerja & Kompeten</h1>
+        <p>Unggul dalam prestasi, berkarakter, dan siap bersaing di era digital.</p>
+        <a href="#jurusan" class="btn-glow">Lihat Jurusan</a>
     </div>
 
     <div class="stats-grid">
         <div class="stat-card"><h2>42</h2><p>Rombel</p></div>
         <div class="stat-card"><h2>A</h2><p>Akreditasi</p></div>
-        <div class="stat-card large"><h2>7</h2><p>Kompetensi Keahlian</p></div>
+        <div class="stat-card large"><h2>7 Jurusan</h2><p>Pilihan Masa Depan</p></div>
     </div>
 
     <div class="section">
         <h2 class="section-title">Profil Sekolah</h2>
         <div class="content-box">
-            <img src="https://images.unsplash.com/photo-1592280771190-3e2e4d571952?q=80&w=600&auto=format&fit=crop" alt="Gedung SMKN 1 Gondang Nganjuk" class="school-img">
-            
-            <span class="info-label">Alamat Resmi:</span>
-            <p>Jl. Raya Gondang Lengkong, Desa Balong Gebang, Kec. Gondang, Kab. Nganjuk, Jawa Timur.</p>
-            
-            <span class="info-label">Tentang Kami:</span>
-            <p>SMK Negeri 1 Gondang adalah sekolah kejuruan negeri unggulan di Kabupaten Nganjuk. Kami berfokus pada pengembangan keterampilan teknis dan karakter siswa agar siap terserap di dunia industri maupun berwirausaha.</p>
-            
-            <span class="info-label">Fasilitas Unggulan:</span>
-            <ul>
-                <li>Laboratorium Komputer & Jaringan Modern</li>
-                <li>Bengkel Otomotif Standar Industri (CBA)</li>
-                <li>Lahan Praktik Pertanian & Peternakan Luas</li>
-                <li>Ruang Multimedia & Perpustakaan Digital</li>
-            </ul>
+            <img src="https://lh3.googleusercontent.com/d/1_9v2mX6T_mS4XJ_8Y7S-X8R4B7W9L6Y4" alt="Gedung Sekolah" class="school-img">
+            <p><strong>Alamat:</strong> Jl. Raya Gondang Lengkong, Desa Balong Gebang, Kec. Gondang, Kab. Nganjuk.</p>
+            <p>SMK Negeri 1 Gondang adalah sekolah kejuruan yang mengutamakan kualitas praktik dan kerjasama industri untuk mencetak tenaga profesional.</p>
         </div>
     </div>
 
     <div class="ppdb-box">
-        <span style="color: #ff4757; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;">INFORMASI PENTING</span>
-        <h2 style="margin-top: 5px;">PPDB 2026/2027</h2>
-        <p>Telah dibuka! Jadilah bagian dari keluarga besar SMKN 1 Gondang.</p>
-        
-        <div style="max-width: 300px; margin: 0 auto; text-align: left;">
-            <div class="list-item"><span>✓</span> Pendaftaran Online melalui situs resmi Jatim</div>
-            <div class="list-item"><span>✓</span> Verifikasi berkas di sekolah (Jam Kerja)</div>
-            <div class="list-item"><span>✓</span> Tes Kompetensi & Wawancara</div>
-        </div>
-        
-        <a href="#" class="btn-glow" style="margin-top: 20px; width: 100%;">Daftar Sekarang</a>
-        <a href="#" class="btn-outline">Panduan PPDB (.pdf)</a>
+        <h2 style="color: #fff;">PPDB 2026/2027</h2>
+        <p style="color: var(--text-dim); font-size: 0.8rem;">Mari bergabung bersama kami!</p>
+        <div class="list-item">💜 Pendaftaran Online Jatim</div>
+        <div class="list-item">💜 Verifikasi Berkas (Jam Kerja)</div>
+        <a href="#" class="btn-glow" style="margin-top: 15px; width: 100%;">Daftar Sekarang</a>
     </div>
 
     <div class="section" id="jurusan">
         <h2 class="section-title">Kompetensi Keahlian</h2>
-        <p class="section-subtitle">7 Program Keahlian Unggulan</p>
-        
-        <div class="grid-container">
+        <div class="jurusan-container">
             <div class="jurusan-card">
-                <span class="card-category">TEKNOLOGI</span>
-                <h4>TKJ (Teknik Komputer dan Jaringan)</h4>
-                <p>Mempelajari instalasi jaringan LAN/WAN, server, keamanan siber, fiber optic, dan administrasi sistem komputer modern.</p>
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400" class="prodi-img">
+                <div class="prodi-info">
+                    <h4>TKJ (Teknik Komputer & Jaringan)</h4>
+                    <p>Fokus pada perakitan komputer, instalasi OS, serta konfigurasi jaringan LAN, WAN, dan Fiber Optic.</p>
+                </div>
             </div>
             <div class="jurusan-card">
-                <span class="card-category">OTOMOTIF</span>
-                <h4>TSM (Teknik Sepeda Motor)</h4>
-                <p>Fokus pada teknik pemeliharaan, perbaikan mesin, kelistrikan, dan manajemen bengkel sepeda motor standar industri.</p>
+                <img src="https://images.unsplash.com/photo-1558981403-c5f91dbbe980?q=80&w=400" class="prodi-img">
+                <div class="prodi-info">
+                    <h4>TSM (Teknik Sepeda Motor)</h4>
+                    <p>Keahlian dalam perawatan dan perbaikan mesin sepeda motor sesuai standar industri otomotif.</p>
+                </div>
             </div>
             <div class="jurusan-card">
-                <span class="card-category">OTOMOTIF</span>
-                <h4>TKR (Teknik Kendaraan Ringan)</h4>
-                <p>Mempelajari teknologi mesin mobil, sistem sasis, pemindah tenaga, dan diagnosis kerusakan kendaraan roda empat.</p>
+                <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=400" class="prodi-img">
+                <div class="prodi-info">
+                    <h4>TKR (Teknik Kendaraan Ringan)</h4>
+                    <p>Mempelajari sistem mesin, sasis, dan kelistrikan pada mobil roda empat.</p>
+                </div>
             </div>
             <div class="jurusan-card">
-                <span class="card-category">MEKANISASI</span>
-                <h4>AMP (Alat Mekanisasi Pertanian)</h4>
-                <p>Keahlian unik dalam pengoperasian, perawatan, dan perbaikan mesin-mesin modern pendukung industri pertanian.</p>
+                <img src="https://images.unsplash.com/photo-1530267981375-f0de937f5f13?q=80&w=400" class="prodi-img">
+                <div class="prodi-info">
+                    <h4>AMP (Alat Mekanisasi Pertanian)</h4>
+                    <p>Keahlian dalam pengoperasian dan pemeliharaan alat modern di sektor pertanian.</p>
+                </div>
             </div>
             <div class="jurusan-card">
-                <span class="card-category">AGRIBISNIS</span>
-                <h4>ATU (Agribisnis Ternak Unggas)</h4>
-                <p>Mempelajari manajemen peternakan unggas profesional, mulai dari pembibitan, pakan, kesehatan, hingga pasca panen.</p>
+                <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=400" class="prodi-img">
+                <div class="prodi-info">
+                    <h4>ATU (Agribisnis Ternak Unggas)</h4>
+                    <p>Manajemen peternakan unggas mulai dari pembibitan hingga pengolahan hasil ternak.</p>
+                </div>
             </div>
             <div class="jurusan-card">
-                <span class="card-category">PENGOLAHAN</span>
-                <h4>APHP (Agribisnis Pengolahan Hasil Pertanian)</h4>
-                <p>Fokus pada teknologi pangan, pengolahan bahan baku tani menjadi produk bernilai jual tinggi, dan keamanan pangan.</p>
+                <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=400" class="prodi-img">
+                <div class="prodi-info">
+                    <h4>APHP (Agribisnis Pengolahan Hasil Pertanian)</h4>
+                    <p>Mengolah bahan baku pertanian menjadi produk pangan bernilai jual tinggi.</p>
+                </div>
             </div>
             <div class="jurusan-card">
-                <span class="card-category">PERTANIAN</span>
-                <h4>ATPH (Agribisnis Tanaman Pangan & Hortikultura)</h4>
-                <p>Mempelajari budidaya tanaman pangan dan hias modern, termasuk metode Hidroponik dan Green House.</p>
+                <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=400" class="prodi-img">
+                <div class="prodi-info">
+                    <h4>ATPH (Agribisnis Tanaman Pangan & Hortikultura)</h4>
+                    <p>Budidaya tanaman pangan dan hortikultura dengan teknik modern dan organik.</p>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="section">
         <h2 class="section-title">Ekstrakurikuler</h2>
-        <p class="section-subtitle">Wadah Penyaluran Bakat & Minat Siswa</p>
-        
         <div class="ekskul-grid">
             <div class="ekskul-card"><div class="icon-circle">🇮🇩</div><h4>Paskibra</h4></div>
             <div class="ekskul-card"><div class="icon-circle">⛺</div><h4>Pramuka</h4></div>
             <div class="ekskul-card"><div class="icon-circle">⚽</div><h4>Futsal</h4></div>
             <div class="ekskul-card"><div class="icon-circle">🏐</div><h4>Voli</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🏸</div><h4>Badminton</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🎸</div><h4>Musik/Band</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">💃</div><h4>Seni Tari</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🖥️</div><h4>IT Club</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">🎸</div><h4>Musik</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">💻</div><h4>IT Club</h4></div>
         </div>
     </div>
 
     <footer>
-        <h2 class="footer-title">Kontak Sekolah</h2>
-        <div class="contact-info">
-            <p>📍 <strong>Alamat:</strong> Jl. Raya Gondang Lengkong, Desa Balong Gebang, Kec. Gondang, Kab. Nganjuk, Jawa Timur</p>
-            <p>📧 <strong>Email:</strong> smkn1gondang@yahoo.co.id</p>
-            <p>📞 <strong>Telp:</strong> (0358) 611 606</p>
-        </div>
+        <h2 style="color: var(--primary);">Kontak Kami</h2>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Email: smkn1gondang@yahoo.co.id</p>
+        <p style="font-size: 0.8rem;">Telp: (0358) 611 606</p>
         
-        <div class="map-box">
-            [ Lokasi Google Maps SMKN 1 Gondang ]
-        </div>
+        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15816.035416049015!2d111.9863456!3d-7.6821369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78345700000001%3A0xc078345700000001!2sSMK%20Negeri%201%20Gondang!5e0!3m2!1sid!2sid!4v1710000000000" allowfullscreen="" loading="lazy"></iframe>
         
-        <div class="copyright">
-            &copy; 2026 Celpiaww Project • Sukseskan SMKN 1 Gondang
-        </div>
+        <p style="text-align: center; margin-top: 30px; font-size: 0.6rem; opacity: 0.5;">&copy; 2026 Celpiaww Project • SMKN 1 Gondang</p>
     </footer>
 
 </body>
