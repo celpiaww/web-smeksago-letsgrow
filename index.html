@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Saya - Custom Version</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variabel Warna - Ganti di sini kalau mau warna lain */
+        :root {
+            --primary-color: #007bff; /* Biru Elektrik */
+            --bg-dark: #121212;      /* Hitam Nyaman di Mata */
+            --card-bg: #1e1e1e;      /* Abu-abu gelap untuk kotak */
+            --text-light: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Navbar Sederhana */
+        nav {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        /* Header / Hero Section */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Bagian Konten */
+        .container {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Tombol */
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#">Beranda</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+    </nav>
+
+    <header>
+        <h1>HELLO WORLD</h1>
+        <p>Selamat datang di platform digital saya.</p>
+        <a href="#mulai" class="cta-button">Jelajahi Sekarang</a>
+    </header>
+
+    <div class="container" id="mulai">
+        <div class="card">
+            <h3>Apa itu Project Ini?</h3>
+            <p>Ini adalah website landing page yang dibuat langsung melalui HP menggunakan GitHub. Fokus pada performa ringan dan tampilan gelap yang modern.</p>
+        </div>
+
+        <div class="card">
+            <h3>Fitur Utama</h3>
+            <p>Responsif (bagus dibuka di HP/Laptop), Dark Mode, dan loading yang sangat cepat.</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 
+    </footer>
+
+</body>
+</html>
