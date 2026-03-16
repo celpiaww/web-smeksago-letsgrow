@@ -3,138 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Saya - Custom Version</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <title>Program Studi - SMKN 1 Gondang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Variabel Warna - Ganti di sini kalau mau warna lain */
         :root {
-            --primary-color: #007bff; /* Biru Elektrik */
-            --bg-dark: #121212;      /* Hitam Nyaman di Mata */
-            --card-bg: #1e1e1e;      /* Abu-abu gelap untuk kotak */
-            --text-light: #f4f4f4;
+            --bg-body: #05162a;
+            --bg-card: #0a1f35;
+            --primary: #00c3ff;
+            --accent: #005f7a;
+            --text: #ffffff;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-body); color: var(--text); line-height: 1.6; }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Navbar Sederhana */
+        /* Navbar */
         nav {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 31, 53, 0.95);
             padding: 15px;
-            display: flex;
-            justify-content: space-around;
+            text-align: center;
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
+            border-bottom: 1px solid var(--accent);
         }
+        nav h2 { font-size: 1.1rem; color: var(--primary); letter-spacing: 1px; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        /* Header / Hero Section */
+        /* Hero Header */
         header {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 60px 20px;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
+            background: radial-gradient(circle at top, var(--accent), var(--bg-body));
+        }
+        header h1 { font-size: 2rem; margin-bottom: 10px; text-transform: uppercase; }
+        header p { opacity: 0.8; font-size: 0.9rem; }
+
+        /* Statistik Singkat */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 0 15px;
+            margin-top: -30px;
+        }
+        .stat-item {
+            background: var(--bg-card);
+            padding: 15px 5px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .stat-item h3 { color: var(--primary); font-size: 1.2rem; }
+        .stat-item p { font-size: 0.7rem; text-transform: uppercase; }
+
+        /* Jurusan List */
+        .main-content { padding: 40px 15px; }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.4rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            margin: 8px auto;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
+        .jurusan-card {
+            background: linear-gradient(145deg, #0a1f35, #0d2847);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 195, 255, 0.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-
-        /* Bagian Konten */
-        .container {
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: auto;
+        .jurusan-card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        .card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--primary-color);
-            transition: transform 0.3s;
+        .jurusan-card p {
+            font-size: 0.85rem;
+            color: #bdc3c7;
+            text-align: justify;
         }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Tombol */
-        .cta-button {
+        .badge {
             display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-top: 20px;
-            font-weight: 600;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 2px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #777;
+            padding: 30px;
+            background: #04101d;
+            font-size: 0.8rem;
+            color: #566573;
+            border-top: 1px solid var(--accent);
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#">Beranda</a>
-        <a href="#tentang">Tentang</a>
-        <a href="#kontak">Kontak</a>
+        <h2>SMK NEGERI 1 GONDANG</h2>
     </nav>
 
     <header>
-        <h1>HELLO WORLD</h1>
-        <p>Selamat datang di platform digital saya.</p>
-        <a href="#mulai" class="cta-button">Jelajahi Sekarang</a>
+        <p style="color: var(--primary); font-weight: bold; margin-bottom: 5px;">PROFIL SEKOLAH</p>
+        <h1>Kompetensi Keahlian</h1>
+        <p>Menyiapkan Lulusan Siap Kerja, Kompeten, dan Berkarakter.</p>
     </header>
 
-    <div class="container" id="mulai">
-        <div class="card">
-            <h3>Apa itu Project Ini?</h3>
-            <p>Ini adalah website landing page yang dibuat langsung melalui HP menggunakan GitHub. Fokus pada performa ringan dan tampilan gelap yang modern.</p>
+    <div class="stats-container">
+        <div class="stat-item">
+            <h3>7</h3>
+            <p>Jurusan</p>
         </div>
-
-        <div class="card">
-            <h3>Fitur Utama</h3>
-            <p>Responsif (bagus dibuka di HP/Laptop), Dark Mode, dan loading yang sangat cepat.</p>
+        <div class="stat-item">
+            <h3>42</h3>
+            <p>Rombel</p>
+        </div>
+        <div class="stat-item">
+            <h3>A</h3>
+            <p>Akreditasi</p>
         </div>
     </div>
 
+    <div class="main-content">
+        <h2 class="section-title">Daftar Jurusan</h2>
+
+        <div class="jurusan-card">
+            <span class="badge">TEKNIK</span>
+            <h3>TKJ (Teknik Komputer Jaringan)</h3>
+            <p>Mempelajari tentang instalasi jaringan LAN, WAN, server, keamanan siber, serta perakitan komputer. Jurusan ini fokus pada teknologi infrastruktur digital masa depan.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <span class="badge">OTOMOTIF</span>
+            <h3>TSM (Teknik Sepeda Motor)</h3>
+            <p>Fokus pada pemeliharaan dan perbaikan mesin sepeda motor, sistem kelistrikan, dan manajemen bengkel. Menghasilkan mekanik handal yang siap bersaing di industri otomotif.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <span class="badge">OTOMOTIF</span>
+            <h3>TKR (Teknik Kendaraan Ringan)</h3>
+            <p>Mempelajari teknologi mesin mobil, sistem kemudi, pengereman, dan transmisi. Siswa dilatih untuk menguasai teknologi otomotif kendaraan roda empat terbaru.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <span class="badge">MEKANISASI</span>
+            <h3>AMP (Alat Mekanisasi Pertanian)</h3>
+            <p>Jurusan unik yang mempelajari pengoperasian, perawatan, dan perbaikan mesin-mesin modern di bidang pertanian seperti traktor dan mesin panen otomatis.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <span class="badge">AGRIBISNIS</span>
+            <h3>ATU (Agribisnis Ternak Unggas)</h3>
+            <p>Mempelajari manajemen peternakan unggas secara profesional, mulai dari pembibitan, pemberian pakan, kesehatan ternak, hingga pemasaran hasil ternak.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <span class="badge">PENGOLAHAN</span>
+            <h3>APHP (Agribisnis Pengolahan Hasil Pertanian)</h3>
+            <p>Fokus pada teknologi pangan, teknik pengemasan, dan pengolahan bahan baku hasil tani menjadi produk makanan/minuman yang memiliki nilai jual tinggi.</p>
+        </div>
+
+        <div class="jurusan-card">
+            <span class="badge">PERTANIAN</span>
+            <h3>ATPH (Agribisnis Tanaman Pangan & Hortikultura)</h3>
+            <p>Mempelajari budidaya tanaman pangan dan hias dengan metode modern (hidroponik, greenhouse) serta teknik pemuliaan tanaman yang efisien.</p>
+        </div>
+
+    </div>
+
     <footer>
-        &copy; 2026 
+        <p>📍 Jl. Raya Gondang Lengkong, Nganjuk, Jawa Timur</p>
+        <p style="margin-top: 10px;">&copy; 2026 Celpiaww - SMKN 1 Gondang Project</p>
     </footer>
 
 </body>
