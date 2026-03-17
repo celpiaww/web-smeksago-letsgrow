@@ -7,38 +7,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #9d00ff;
-            --primary-dark: #6a00af;
-            --bg-dark: #0a0514;
-            --card-bg: #160d27;
-            --text-light: #f4f4f4;
+            --primary: #bc13fe;
+            --primary-glow: #d400ff;
+            --accent: #7000ff;
+            --bg-dark: #07020d;
+            --card-bg: rgba(22, 13, 39, 0.6);
+            --glass-border: rgba(212, 0, 255, 0.2);
+            --text-main: #ffffff;
+            --text-dim: #b1a1c7;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
-        /* Header & Nav */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+        /* Navbar */
         header {
-            background: rgba(10, 5, 20, 0.9);
-            padding: 15px 5%;
+            background: rgba(7, 2, 13, 0.8);
+            backdrop-filter: blur(15px);
+            padding: 15px 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(157, 0, 255, 0.2);
+            border-bottom: 1px solid var(--glass-border);
         }
-        .logo-container { display: flex; align-items: center; gap: 10px; }
-        .logo-container img { height: 45px; }
-        .school-name h1 { font-size: 1.2rem; color: var(--primary); font-weight: 700; }
-        .school-name p { font-size: 0.7rem; color: #aaa; }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-container img { height: 45px; filter: drop-shadow(0 0 8px var(--primary)); }
+        .school-name h1 { font-size: 1.1rem; color: var(--primary); font-weight: 700; letter-spacing: 1px; }
+        .school-name p { font-size: 0.65rem; color: var(--text-dim); text-transform: uppercase; }
 
         /* Hero Section */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(10, 5, 20, 0.7), rgba(10, 5, 20, 0.9)), 
-                        url('foto gedung sekolah.jpg'); /* FOTO GEDUNG SEKOLAH */
+            height: 80vh;
+            background: linear-gradient(rgba(7, 2, 13, 0.5), var(--bg-dark)), url('foto gedung sekolah.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -46,48 +54,56 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            padding: 0 20px;
         }
-        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 20px var(--primary); }
-        .hero p { max-width: 600px; margin-bottom: 25px; color: #ccc; }
+        .hero h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; background: linear-gradient(to right, #fff, var(--primary-glow)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 10px 30px rgba(212, 0, 255, 0.3); }
+        .hero p { max-width: 550px; margin-bottom: 30px; color: var(--text-dim); font-size: 0.95rem; }
         .btn {
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-            box-shadow: 0 0 15px rgba(157, 0, 255, 0.4);
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            color: white; padding: 14px 40px; border-radius: 50px; text-decoration: none;
+            font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; transition: 0.4s;
+            box-shadow: 0 0 20px rgba(157, 0, 255, 0.4); border: 1px solid rgba(255,255,255,0.2);
         }
-        .btn:hover { background: var(--primary-dark); transform: scale(1.05); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 0 35px var(--primary-glow); }
 
-        /* Content Sections */
-        section { padding: 60px 5%; }
-        .section-title { text-align: center; margin-bottom: 40px; }
-        .section-title h3 { font-size: 1.8rem; border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 5px; }
+        /* Section Global */
+        section { padding: 80px 6%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h3 { font-size: 1.8rem; font-weight: 700; position: relative; display: inline-block; padding-bottom: 10px; }
+        .section-title h3::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 4px; background: var(--primary); border-radius: 10px; box-shadow: 0 0 10px var(--primary); }
 
-        /* Grid Stats */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
-        .stat-card { background: var(--card-bg); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(157, 0, 255, 0.1); }
-        .stat-card h4 { font-size: 2.5rem; color: var(--primary); }
+        /* Stats Card */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+        .stat-card { background: var(--card-bg); padding: 25px; border-radius: 20px; text-align: center; border: 1px solid var(--glass-border); backdrop-filter: blur(5px); }
+        .stat-card h4 { font-size: 2.2rem; color: var(--primary-glow); margin-bottom: 5px; }
+        .stat-card p { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; font-weight: 600; }
 
         /* Prodi Cards */
-        .prodi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .prodi-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; transition: 0.3s; border: 1px solid rgba(157, 0, 255, 0.1); }
-        .prodi-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .prodi-img { height: 180px; width: 100%; object-fit: cover; }
-        .prodi-info { padding: 20px; }
-        .prodi-info h5 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
-        .prodi-info p { font-size: 0.9rem; color: #bbb; }
+        .prodi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .prodi-card { background: var(--card-bg); border-radius: 25px; overflow: hidden; border: 1px solid var(--glass-border); transition: 0.4s; }
+        .prodi-card:hover { transform: translateY(-10px); border-color: var(--primary-glow); box-shadow: 0 15px 35px rgba(157, 0, 255, 0.2); }
+        .prodi-img { height: 200px; width: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.1); }
+        .prodi-info { padding: 25px; }
+        .prodi-info h5 { color: var(--primary-glow); font-size: 1.1rem; margin-bottom: 12px; font-weight: 700; }
+        .prodi-info p { font-size: 0.85rem; color: var(--text-dim); text-align: justify; }
+
+        /* Ekskul */
+        .ekskul-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 15px; }
+        .ekskul-card { background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 18px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.05); transition: 0.3s; }
+        .ekskul-card:hover { background: rgba(188, 19, 254, 0.1); border-color: var(--primary); transform: scale(1.05); }
+        .icon-circle { font-size: 1.8rem; margin-bottom: 10px; display: block; filter: drop-shadow(0 0 5px var(--primary)); }
+        .ekskul-card h4 { font-size: 0.8rem; font-weight: 600; color: #fff; }
 
         /* Footer */
-        footer { background: #050208; padding: 40px 5%; border-top: 1px solid rgba(157, 0, 255, 0.2); }
-        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .map-frame { border-radius: 15px; overflow: hidden; height: 200px; border: 1px solid var(--primary); }
+        footer { background: #040108; padding: 60px 6% 30px; border-top: 1px solid var(--glass-border); }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .contact-info p { margin-bottom: 15px; font-size: 0.9rem; color: var(--text-dim); display: flex; align-items: center; gap: 10px; }
+        .map-frame { border-radius: 20px; overflow: hidden; height: 250px; border: 1px solid var(--primary); box-shadow: 0 0 20px rgba(157, 0, 255, 0.1); }
 
         @media (max-width: 768px) {
-            .hero h2 { font-size: 1.8rem; }
+            .hero h2 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            section { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -95,127 +111,108 @@
 
 <header>
     <div class="logo-container">
-        <img src="logo smkn 1 gondang.png" alt="Logo SMKN 1 Gondang"> <div class="school-name">
-            <h1>SMK Negeri 1 Gondang</h1>
-            <p>Gondang, Nganjuk • Jawa Timur</p>
+        <img src="logo smkn 1 gondang.png" alt="Logo">
+        <div class="school-name">
+            <h1>SMKN 1 GONDANG</h1>
+            <p>Nganjuk • Jawa Timur</p>
         </div>
     </div>
+    <div style="font-size: 1.2rem; filter: drop-shadow(0 0 5px var(--primary));">✨</div>
 </header>
 
 <div class="hero">
-    <h2>Menyiapkan Lulusan Siap Kerja & Kompeten</h2>
-    <p>Unggul dalam prestasi, berkarakter, dan siap bersaing di era digital bersama SMK Negeri 1 Gondang.</p>
-    <a href="#prodi" class="btn">Lihat Jurusan</a>
+    <h2>Eksplorasi Masa Depanmu</h2>
+    <p>Bergabunglah dengan komunitas pembelajar kreatif dan inovatif di SMKN 1 Gondang. Siap kerja, cerdas, dan kompeten.</p>
+    <a href="#prodi" class="btn">Mulai Penjelajahan</a>
 </div>
 
 <section id="profil">
     <div class="section-title">
         <h3>Profil Sekolah</h3>
     </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
-        <div style="flex: 1; min-width: 300px;">
-
-http://googleusercontent.com/map_location_reference/1
-            <p><strong>[SMK Negeri 1 Gondang](http://googleusercontent.com/map_location_reference/0)</strong> adalah sekolah menengah kejuruan yang mengutamakan kualitas praktik dan kerjasama industri untuk mencetak tenaga profesional. Kami berlokasi di Jl. Raya Gondang Lengkong, Nganjuk.</p>
-            <div class="stats-grid" style="margin-top: 20px;">
-                <div class="stat-card"><h4>42</h4><p>Rombel</p></div>
-                <div class="stat-card"><h4>A</h4><p>Akreditasi</p></div>
-                <div class="stat-card"><h4>7</h4><p>Jurusan</p></div>
-            </div>
+    <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <p style="font-size: 1rem; color: var(--text-dim); margin-bottom: 30px;"><strong>SMK Negeri 1 Gondang</strong> mengedepankan integrasi kurikulum industri dengan karakter kuat untuk melahirkan profesional muda yang siap bersaing secara global.</p>
+        <div class="stats-grid">
+            <div class="stat-card"><h4>42</h4><p>Rombongan Belajar</p></div>
+            <div class="stat-card"><h4>A</h4><p>Akreditasi Sekolah</p></div>
+            <div class="stat-card"><h4>7</h4><p>Pilihan Jurusan</p></div>
         </div>
     </div>
 </section>
 
-<section id="prodi" style="background: rgba(157, 0, 255, 0.03);">
+<section id="prodi" style="background: radial-gradient(circle at center, #11051a, #07020d);">
     <div class="section-title">
         <h3>Kompetensi Keahlian</h3>
     </div>
     <div class="prodi-grid">
         <div class="prodi-card">
-            <img src="foto_tkj.jpg" class="prodi-img" alt="TKJ">
-            <div class="prodi-info">
-                <h5>TKJ (Teknik Komputer & Jaringan)</h5>
-                <p>Mempelajari perakitan komputer, instalasi jaringan, server, cloud computing, serta keamanan jaringan.</p>
-            </div>
+            <img src="foto_tkj.jpg" class="prodi-img">
+            <div class="prodi-info"><h5>TKJ</h5><p>Ahli dalam infrastruktur jaringan, keamanan data, dan solusi cloud computing masa depan.</p></div>
         </div>
         <div class="prodi-card">
-            <img src="foto_tsm.jpg" class="prodi-img" alt="TSM">
-            <div class="prodi-info">
-                <h5>TSM (Teknik Sepeda Motor)</h5>
-                <p>Fokus pada pemeliharaan dan perbaikan mesin motor, sistem kelistrikan, dan manajemen bengkel.</p>
-            </div>
+            <img src="foto_tsm.jpg" class="prodi-img">
+            <div class="prodi-info"><h5>TSM</h5><p>Menguasai teknologi mesin kendaraan roda dua dengan standar bengkel industri modern.</p></div>
         </div>
         <div class="prodi-card">
-            <img src="foto_tkr.jpg" class="prodi-img" alt="TKR">
-            <div class="prodi-info">
-                <h5>TKR (Teknik Kendaraan Ringan)</h5>
-                <p>Mempelajari mesin mobil, sistem kemudi, transmisi, dan diagnosa kerusakan mobil modern.</p>
-            </div>
+            <img src="foto_tkr.jpg" class="prodi-img">
+            <div class="prodi-info"><h5>TKR</h5><p>Spesialisasi otomotif kendaraan ringan, diagnosa sistem EFI, dan manajemen bengkel.</p></div>
         </div>
         <div class="prodi-card">
-            <img src="foto_amp.jpg" class="prodi-img" alt="AMP">
-            <div class="prodi-info">
-                <h5>AMP (Alat Mekanisasi Pertanian)</h5>
-                <p>Pengoperasian dan pemeliharaan alat modern pertanian seperti traktor, combine harvester, dan teknologi irigasi.</p>
-            </div>
+            <img src="foto_amp.jpg" class="prodi-img">
+            <div class="prodi-info"><h5>AMP</h5><p>Modernisasi sektor pertanian melalui mekanisasi alat berat dan teknologi presisi.</p></div>
         </div>
         <div class="prodi-card">
-            <img src="foto_atu.jpg" class="prodi-img" alt="ATU">
-            <div class="prodi-info">
-                <h5>ATU (Agribisnis Ternak Unggas)</h5>
-                <p>Manajemen ternak unggas mulai dari pembibitan, pemberian pakan, hingga pemasaran produk.</p>
-            </div>
+            <img src="foto_atu.jpg" class="prodi-img">
+            <div class="prodi-info"><h5>ATU</h5><p>Inovasi budidaya unggas skala industri dengan manajemen kesehatan ternak yang unggul.</p></div>
         </div>
         <div class="prodi-card">
-            <img src="foto_aphp.jpg" class="prodi-img" alt="APHP">
-            <div class="prodi-info">
-                <h5>APHP (Agribisnis Pengolahan Hasil Pertanian)</h5>
-                <p>Mengolah bahan baku pertanian menjadi produk pangan bernilai jual tinggi dan higienis.</p>
-            </div>
+            <img src="foto_aphp.jpg" class="prodi-img">
+            <div class="prodi-info"><h5>APHP</h5><p>Transformasi produk tani menjadi olahan pangan kreatif berstandar kualitas nasional.</p></div>
         </div>
         <div class="prodi-card">
-            <img src="foto_atph.jpg" class="prodi-img" alt="ATPH">
-            <div class="prodi-info">
-                <h5>ATPH (Agribisnis Tanaman Pangan & Hortikultura)</h5>
-                <p>Budidaya tanaman sayur, buah, dan tanaman hias dengan teknologi modern dan hidroponik.</p>
-            </div>
+            <img src="foto_atph.jpg" class="prodi-img">
+            <div class="prodi-info"><h5>ATPH</h5><p>Menerapkan teknologi hidroponik dan hortikultura modern untuk ketahanan pangan.</p></div>
         </div>
     </div>
 </section>
 
-    <div class="section">
-        <h2 class="section-title">Ekstrakurikuler</h2>
-        <div class="ekskul-grid">
-            <div class="ekskul-card"><div class="icon-circle">🇮🇩</div><h4>Paskibra</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">⛑️</div><h4>PMR</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">⚽</div><h4>Futsal</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🏐</div><h4>Voli</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🎸</div><h4>Musik</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🗣️</div><h4>English Club</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">💃🏻</div><h4>Tari</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">⛺</div><h4>Pramuka</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🏸</div><h4>Badminton</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">📰</div><h4>Jurnalistik</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🕌</div><h4>Majelis Taklim</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">⛰️</div><h4>Pecinta Alam</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🎼</div><h4>Karawitan</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">🔬</div><h4>Karya Ilmiah</h4></div>
-        </div>
+<section id="ekskul">
+    <div class="section-title">
+        <h3>Ekstrakurikuler</h3>
     </div>
+    <div class="ekskul-grid">
+        <div class="ekskul-card"><span class="icon-circle">🇮🇩</span><h4>Paskibra</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">⛑️</span><h4>PMR</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">⚽</span><h4>Futsal</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">🏐</span><h4>Voli</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">🎸</span><h4>Musik</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">🗣️</span><h4>English Club</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">💃🏻</span><h4>Tari</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">⛺</span><h4>Pramuka</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">🏸</span><h4>Badminton</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">📰</span><h4>Jurnalistik</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">🕌</span><h4>Majelis Taklim</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">⛰️</span><h4>Pecinta Alam</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">🎼</span><h4>Karawitan</h4></div>
+        <div class="ekskul-card"><span class="icon-circle">🔬</span><h4>Karya Ilmiah</h4></div>
+    </div>
+</section>
 
 <footer>
     <div class="footer-content">
-        <div>
-            <h4 style="color: var(--primary); margin-bottom: 15px;">Hubungi Kami</h4>
+        <div class="contact-info">
+            <h4 style="color: var(--primary); margin-bottom: 20px; font-size: 1.3rem;">Hubungi Kami</h4>
             <p>📧 smkngondang@yahoo.co.id</p>
             <p>📞 (0358) 611 606</p>
-            <p>📍 Jl. Raya Gondang Lengkong, Balong Rejo, Gondang, Nganjuk.</p>
+            <p>📍 Jl. Raya Gondang Lengkong, Nganjuk.</p>
         </div>
         <div class="map-frame">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.084138676632!2d111.9839958147761!3d-7.565863294544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7837d31933907f%3A0x27b81bfcabd888fc!2sSMK%20Negeri%201%20Gondang!5e0!3m2!1sid!2sid!4v1710660000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>
-    <p style="text-align: center; margin-top: 30px; color: #555; font-size: 0.8rem;">&copy; 2026 SMK Negeri 1 Gondang. Digital Landing Page.</p>
+    <div style="text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p style="color: #444; font-size: 0.75rem;">© 2026 Celpiaww Project • SMK Negeri 1 Gondang</p>
+    </div>
 </footer>
 
 </body>
