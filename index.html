@@ -175,41 +175,146 @@
     </div>
 </section>
 
-<section id="prodi" style="background: radial-gradient(circle at center, #11051a, #07020d);">
+<section id="prodi" style="background: radial-gradient(circle at center, #11051a, #07020d); padding-bottom: 100px;">
     <div class="section-title">
         <h3>Kompetensi Keahlian</h3>
     </div>
-    <div class="prodi-grid">
-        <div class="prodi-card">
-            <img src="foto_tkj.jpg" class="prodi-img">
-            <div class="prodi-info"><h5>TKJ</h5><p>Ahli dalam infrastruktur jaringan, keamanan data, dan solusi cloud computing masa depan.</p></div>
+    
+    <div class="prodi-grid-portrait">
+        <div class="prodi-card-portrait">
+            <img src="foto_tkj.jpg" class="prodi-img-portrait" alt="Praktik TKJ">
+            <div class="prodi-info-portrait">
+                <h5>TKJ</h5>
+                <p>(Teknik Komputer & Jaringan)</p>
+            </div>
         </div>
-        <div class="prodi-card">
-            <img src="foto_tsm.jpg" class="prodi-img">
-            <div class="prodi-info"><h5>TSM</h5><p>Menguasai teknologi mesin kendaraan roda dua dengan standar bengkel industri modern.</p></div>
+
+        <div class="prodi-card-portrait">
+            <img src="foto_tsm.jpg" class="prodi-img-portrait" alt="Praktik TSM">
+            <div class="prodi-info-portrait">
+                <h5>TSM</h5>
+                <p>(Teknik Sepeda Motor)</p>
+            </div>
         </div>
-        <div class="prodi-card">
-            <img src="foto_tkr.jpg" class="prodi-img">
-            <div class="prodi-info"><h5>TKR</h5><p>Spesialisasi otomotif kendaraan ringan, diagnosa sistem EFI, dan manajemen bengkel.</p></div>
+
+        <div class="prodi-card-portrait">
+            <img src="foto_tkr.jpg" class="prodi-img-portrait" alt="Praktik TKR">
+            <div class="prodi-info-portrait">
+                <h5>TKR</h5>
+                <p>(Teknik Kendaraan Ringan)</p>
+            </div>
         </div>
-        <div class="prodi-card">
-            <img src="foto_amp.jpg" class="prodi-img">
-            <div class="prodi-info"><h5>AMP</h5><p>Modernisasi sektor pertanian melalui mekanisasi alat berat dan teknologi presisi.</p></div>
+
+        <div class="prodi-card-portrait">
+            <img src="foto_amp.jpg" class="prodi-img-portrait" alt="Praktik AMP">
+            <div class="prodi-info-portrait">
+                <h5>AMP</h5>
+                <p>(Alat Mekanisasi Pertanian)</p>
+            </div>
         </div>
-        <div class="prodi-card">
-            <img src="foto_atu.jpg" class="prodi-img">
-            <div class="prodi-info"><h5>ATU</h5><p>Inovasi budidaya unggas skala industri dengan manajemen kesehatan ternak yang unggul.</p></div>
+
+        <div class="prodi-card-portrait">
+            <img src="foto_atu.jpg" class="prodi-img-portrait" alt="Praktik ATU">
+            <div class="prodi-info-portrait">
+                <h5>ATU</h5>
+                <p>(Agribisnis Ternak Unggas)</p>
+            </div>
         </div>
-        <div class="prodi-card">
-            <img src="foto_aphp.jpg" class="prodi-img">
-            <div class="prodi-info"><h5>APHP</h5><p>Transformasi produk tani menjadi olahan pangan kreatif berstandar kualitas nasional.</p></div>
+
+        <div class="prodi-card-portrait">
+            <img src="foto_aphp.jpg" class="prodi-img-portrait" alt="Praktik APHP">
+            <div class="prodi-info-portrait">
+                <h5>APHP</h5>
+                <p>(Agribisnis Pengolahan Hasil Pertanian)</p>
+            </div>
         </div>
-        <div class="prodi-card">
-            <img src="foto_atph.jpg" class="prodi-img">
-            <div class="prodi-info"><h5>ATPH</h5><p>Menerapkan teknologi hidroponik dan hortikultura modern untuk ketahanan pangan.</p></div>
+
+        <div class="prodi-card-portrait">
+            <img src="foto_atph.jpg" class="prodi-img-portrait" alt="Praktik ATPH">
+            <div class="prodi-info-portrait">
+                <h5>ATPH</h5>
+                <p>(Agribisnis Tanaman Pangan & Hortikultura)</p>
+            </div>
         </div>
     </div>
 </section>
+
+<style>
+    .prodi-grid-portrait {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsif */
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .prodi-card-portrait {
+        background: var(--card-bg);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        transition: 0.4s;
+        display: flex;
+        flex-direction: column;
+        height: 100%; /* Pastikan tinggi kartu sama */
+    }
+
+    .prodi-card-portrait:hover {
+        transform: translateY(-8px);
+        border-color: var(--primary-glow);
+        box-shadow: 0 10px 30px rgba(188, 19, 254, 0.2);
+    }
+
+    .prodi-img-portrait {
+        width: 100%;
+        height: 400px; /* Atur tinggi foto portrait di sini (sesuaikan jika perlu) */
+        object-fit: cover; /* Foto tetap proporsional dan memenuhi area */
+        object-position: center top; /* Fokus ke bagian atas foto praktik */
+        filter: brightness(0.85);
+        transition: 0.3s;
+    }
+
+    .prodi-card-portrait:hover .prodi-img-portrait {
+        filter: brightness(1); /* Terangkan sedikit saat dihover */
+    }
+
+    .prodi-info-portrait {
+        padding: 15px 20px;
+        text-align: center;
+        background: rgba(22, 13, 39, 0.8); /* Background info transparan */
+        border-top: 1px solid var(--glass-border);
+        flex-grow: 1; /* Pastikan info memenuhi sisa kartu */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .prodi-info-portrait h5 {
+        color: var(--primary-glow);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 3px;
+    }
+
+    .prodi-info-portrait p {
+        font-size: 0.75rem;
+        color: var(--text-dim);
+        font-weight: 400;
+        text-transform: none; /* Kembalikan ke teks biasa */
+        letter-spacing: normal;
+    }
+
+    /* Penyesuaian untuk layar mobile */
+    @media (max-width: 600px) {
+        .prodi-img-portrait {
+            height: 350px; /* Sedikit lebih pendek di mobile agar tidak terlalu panjang */
+        }
+        .prodi-grid-portrait {
+            grid-template-columns: 1fr; /* 1 kolom penuh di mobile */
+            gap: 20px;
+        }
+    }
+</style>
 
 <section id="ekskul">
     <div class="section-title">
