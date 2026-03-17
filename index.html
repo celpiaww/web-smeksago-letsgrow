@@ -7,213 +7,216 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #0a0118;
-            --bg-card: #160230;
-            --primary: #d400ff;
-            --secondary: #6a0dad;
-            --glow: rgba(212, 0, 255, 0.5);
-            --text-main: #ffffff;
-            --text-dim: #b8a0d9;
+            --primary: #9d00ff;
+            --primary-dark: #6a00af;
+            --bg-dark: #0a0514;
+            --card-bg: #160d27;
+            --text-light: #f4f4f4;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-deep); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-light); line-height: 1.6; }
 
-        /* NAVBAR */
-        .navbar {
+        /* Header & Nav */
+        header {
+            background: rgba(10, 5, 20, 0.9);
+            padding: 15px 5%;
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            padding: 15px 20px;
-            background: rgba(22, 2, 48, 0.9);
+            align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(212, 0, 255, 0.2);
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(157, 0, 255, 0.2);
         }
-        .nav-brand { display: flex; align-items: center; }
-        .nav-brand img { width: 45px; margin-right: 12px; filter: drop-shadow(0 0 5px var(--glow)); border-radius: 50%; }
-        .nav-text h2 { font-size: 0.9rem; color: var(--primary); line-height: 1.2; font-weight: 700; }
-        .nav-text p { font-size: 0.65rem; color: var(--text-dim); }
+        .logo-container { display: flex; align-items: center; gap: 10px; }
+        .logo-container img { height: 45px; }
+        .school-name h1 { font-size: 1.2rem; color: var(--primary); font-weight: 700; }
+        .school-name p { font-size: 0.7rem; color: #aaa; }
 
-        /* HERO */
+        /* Hero Section */
         .hero {
-            padding: 80px 20px 60px;
+            height: 70vh;
+            background: linear-gradient(rgba(10, 5, 20, 0.7), rgba(10, 5, 20, 0.9)), 
+                        url('foto gedung sekolah.jpg'); /* FOTO GEDUNG SEKOLAH */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            background: radial-gradient(circle at top, #2e0057, var(--bg-deep));
+            padding: 20px;
         }
-        .badge-hero { 
-            background: rgba(212, 0, 255, 0.1); color: var(--primary); padding: 6px 16px; 
-            border-radius: 20px; font-size: 0.7rem; font-weight: 600; border: 1px solid var(--primary);
-            text-transform: uppercase; box-shadow: 0 0 10px var(--glow);
+        .hero h2 { font-size: 2.2rem; margin-bottom: 10px; text-shadow: 0 0 20px var(--primary); }
+        .hero p { max-width: 600px; margin-bottom: 25px; color: #ccc; }
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(157, 0, 255, 0.4);
         }
-        .hero h1 { font-size: 2rem; margin: 20px 0; font-weight: 700; line-height: 1.2; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        .btn-glow { 
-            background: linear-gradient(45deg, var(--secondary), var(--primary)); 
-            color: white; padding: 14px 30px; border-radius: 30px; text-decoration: none; 
-            font-weight: 600; display: inline-block; box-shadow: 0 4px 20px var(--glow); 
-            text-transform: uppercase; font-size: 0.8rem;
-        }
+        .btn:hover { background: var(--primary-dark); transform: scale(1.05); }
 
-        /* STATS */
-        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 20px; margin-top: -30px; }
-        .stat-card { background: var(--bg-card); padding: 20px; border-radius: 18px; text-align: center; border: 1px solid rgba(212, 0, 255, 0.1); }
-        .stat-card.large { grid-column: span 2; }
-        .stat-card h2 { color: var(--primary); font-size: 1.8rem; font-weight: 700; }
-        .stat-card p { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; }
+        /* Content Sections */
+        section { padding: 60px 5%; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h3 { font-size: 1.8rem; border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 5px; }
 
-        /* SECTIONS */
-        .section { padding: 60px 20px; }
-        .section-title { text-align: center; margin-bottom: 35px; font-size: 1.6rem; font-weight: 700; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary); margin: 10px auto; border-radius: 2px; }
+        /* Grid Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+        .stat-card { background: var(--card-bg); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(157, 0, 255, 0.1); }
+        .stat-card h4 { font-size: 2.5rem; color: var(--primary); }
 
-        .content-box { background: var(--bg-card); padding: 25px; border-radius: 20px; border: 1px solid rgba(212, 0, 255, 0.1); }
-        .school-img { width: 100%; border-radius: 15px; margin-bottom: 20px; border: 2px solid var(--secondary); object-fit: cover; }
-
-        /* JURUSAN WITH IMAGES */
-        .jurusan-container { display: flex; flex-direction: column; gap: 25px; }
-        .jurusan-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(212, 0, 255, 0.1); }
-        .prodi-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 2px solid var(--primary); }
+        /* Prodi Cards */
+        .prodi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .prodi-card { background: var(--card-bg); border-radius: 20px; overflow: hidden; transition: 0.3s; border: 1px solid rgba(157, 0, 255, 0.1); }
+        .prodi-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .prodi-img { height: 180px; width: 100%; object-fit: cover; }
         .prodi-info { padding: 20px; }
-        .prodi-info h4 { color: var(--primary); margin-bottom: 8px; font-size: 1.1rem; }
-        .prodi-info p { font-size: 0.8rem; color: #cbd5e0; text-align: justify; }
+        .prodi-info h5 { color: var(--primary); font-size: 1.1rem; margin-bottom: 10px; }
+        .prodi-info p { font-size: 0.9rem; color: #bbb; }
 
-        /* PPDB */
-        .ppdb-box { background: linear-gradient(135deg, #1a0033, #330066); padding: 30px 20px; border-radius: 20px; border: 2px solid var(--primary); margin: 20px; text-align: center; }
-        .list-item { text-align: left; font-size: 0.8rem; margin: 10px 0; display: flex; align-items: center; gap: 10px; }
+        /* Footer */
+        footer { background: #050208; padding: 40px 5%; border-top: 1px solid rgba(157, 0, 255, 0.2); }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .map-frame { border-radius: 15px; overflow: hidden; height: 200px; border: 1px solid var(--primary); }
 
-        /* EKSKUL */
-        .ekskul-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .ekskul-card { background: var(--bg-card); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.03); }
-        .icon-circle { width: 45px; height: 45px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.2rem; }
-
-        /* FOOTER */
-        footer { background: #05000d; padding: 40px 20px; border-top: 1px solid var(--secondary); text-align: left; }
-        .map-frame { width: 100%; height: 250px; border-radius: 15px; border: 2px solid var(--primary); margin-top: 20px; }
-
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <div class="nav-brand">
-            <img src="https://lh3.googleusercontent.com/d/1_9iEOnW3jYy9w_e8N7Zg3fGf_6W8XJ0X" alt="Logo">
-            <div class="nav-text">
-                <h2>SMK Negeri 1 Gondang</h2>
-                <p>Gondang, Nganjuk • Jawa Timur</p>
-            </div>
-        </div>
-        <div style="font-size: 1.2rem;">✨</div>
-    </div>
-
-    <div class="hero">
-        <span class="badge-hero">SMK NEGERI 1 GONDANG</span>
-        <h1>Menyiapkan Lulusan Siap Kerja & Kompeten</h1>
-        <p>Unggul dalam prestasi, berkarakter, dan siap bersaing di era digital.</p>
-        <a href="#jurusan" class="btn-glow">Lihat Jurusan</a>
-    </div>
-
-    <div class="stats-grid">
-        <div class="stat-card"><h2>42</h2><p>Rombel</p></div>
-        <div class="stat-card"><h2>A</h2><p>Akreditasi</p></div>
-        <div class="stat-card large"><h2>7 Jurusan</h2><p>Pilihan Masa Depan</p></div>
-    </div>
-
-    <div class="section">
-        <h2 class="section-title">Profil Sekolah</h2>
-        <div class="content-box">
-            <img src="https://lh3.googleusercontent.com/d/1_9v2mX6T_mS4XJ_8Y7S-X8R4B7W9L6Y4" alt="Gedung Sekolah" class="school-img">
-            <p><strong>Alamat:</strong> Jl. Raya Gondang Lengkong, Desa Balong Gebang, Kec. Gondang, Kab. Nganjuk.</p>
-            <p>SMK Negeri 1 Gondang adalah sekolah kejuruan yang mengutamakan kualitas praktik dan kerjasama industri untuk mencetak tenaga profesional.</p>
+<header>
+    <div class="logo-container">
+        <img src="logo smkn 1 gondang.png" alt="Logo SMKN 1 Gondang"> <div class="school-name">
+            <h1>SMK Negeri 1 Gondang</h1>
+            <p>Gondang, Nganjuk • Jawa Timur</p>
         </div>
     </div>
+</header>
 
-    <div class="ppdb-box">
-        <h2 style="color: #fff;">PPDB 2026/2027</h2>
-        <p style="color: var(--text-dim); font-size: 0.8rem;">Mari bergabung bersama kami!</p>
-        <div class="list-item">💜 Pendaftaran Online Jatim</div>
-        <div class="list-item">💜 Verifikasi Berkas (Jam Kerja)</div>
-        <a href="#" class="btn-glow" style="margin-top: 15px; width: 100%;">Daftar Sekarang</a>
+<div class="hero">
+    <h2>Menyiapkan Lulusan Siap Kerja & Kompeten</h2>
+    <p>Unggul dalam prestasi, berkarakter, dan siap bersaing di era digital bersama SMK Negeri 1 Gondang.</p>
+    <a href="#prodi" class="btn">Lihat Jurusan</a>
+</div>
+
+<section id="profil">
+    <div class="section-title">
+        <h3>Profil Sekolah</h3>
     </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center;">
+        <div style="flex: 1; min-width: 300px;">
 
-    <div class="section" id="jurusan">
-        <h2 class="section-title">Kompetensi Keahlian</h2>
-        <div class="jurusan-container">
-            <div class="jurusan-card">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=400" class="prodi-img">
-                <div class="prodi-info">
-                    <h4>TKJ (Teknik Komputer & Jaringan)</h4>
-                    <p>Fokus pada perakitan komputer, instalasi OS, serta konfigurasi jaringan LAN, WAN, dan Fiber Optic.</p>
-                </div>
-            </div>
-            <div class="jurusan-card">
-                <img src="https://images.unsplash.com/photo-1558981403-c5f91dbbe980?q=80&w=400" class="prodi-img">
-                <div class="prodi-info">
-                    <h4>TSM (Teknik Sepeda Motor)</h4>
-                    <p>Keahlian dalam perawatan dan perbaikan mesin sepeda motor sesuai standar industri otomotif.</p>
-                </div>
-            </div>
-            <div class="jurusan-card">
-                <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=400" class="prodi-img">
-                <div class="prodi-info">
-                    <h4>TKR (Teknik Kendaraan Ringan)</h4>
-                    <p>Mempelajari sistem mesin, sasis, dan kelistrikan pada mobil roda empat.</p>
-                </div>
-            </div>
-            <div class="jurusan-card">
-                <img src="https://images.unsplash.com/photo-1530267981375-f0de937f5f13?q=80&w=400" class="prodi-img">
-                <div class="prodi-info">
-                    <h4>AMP (Alat Mekanisasi Pertanian)</h4>
-                    <p>Keahlian dalam pengoperasian dan pemeliharaan alat modern di sektor pertanian.</p>
-                </div>
-            </div>
-            <div class="jurusan-card">
-                <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=400" class="prodi-img">
-                <div class="prodi-info">
-                    <h4>ATU (Agribisnis Ternak Unggas)</h4>
-                    <p>Manajemen peternakan unggas mulai dari pembibitan hingga pengolahan hasil ternak.</p>
-                </div>
-            </div>
-            <div class="jurusan-card">
-                <img src="https://images.unsplash.com/photo-1550989460-0adf9ea622e2?q=80&w=400" class="prodi-img">
-                <div class="prodi-info">
-                    <h4>APHP (Agribisnis Pengolahan Hasil Pertanian)</h4>
-                    <p>Mengolah bahan baku pertanian menjadi produk pangan bernilai jual tinggi.</p>
-                </div>
-            </div>
-            <div class="jurusan-card">
-                <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?q=80&w=400" class="prodi-img">
-                <div class="prodi-info">
-                    <h4>ATPH (Agribisnis Tanaman Pangan & Hortikultura)</h4>
-                    <p>Budidaya tanaman pangan dan hortikultura dengan teknik modern dan organik.</p>
-                </div>
+http://googleusercontent.com/map_location_reference/1
+            <p><strong>[SMK Negeri 1 Gondang](http://googleusercontent.com/map_location_reference/0)</strong> adalah sekolah menengah kejuruan yang mengutamakan kualitas praktik dan kerjasama industri untuk mencetak tenaga profesional. Kami berlokasi di Jl. Raya Gondang Lengkong, Nganjuk.</p>
+            <div class="stats-grid" style="margin-top: 20px;">
+                <div class="stat-card"><h4>42</h4><p>Rombel</p></div>
+                <div class="stat-card"><h4>A</h4><p>Akreditasi</p></div>
+                <div class="stat-card"><h4>7</h4><p>Jurusan</p></div>
             </div>
         </div>
     </div>
+</section>
+
+<section id="prodi" style="background: rgba(157, 0, 255, 0.03);">
+    <div class="section-title">
+        <h3>Kompetensi Keahlian</h3>
+    </div>
+    <div class="prodi-grid">
+        <div class="prodi-card">
+            <img src="foto_tkj.jpg" class="prodi-img" alt="TKJ">
+            <div class="prodi-info">
+                <h5>TKJ (Teknik Komputer & Jaringan)</h5>
+                <p>Mempelajari perakitan komputer, instalasi jaringan, server, cloud computing, serta keamanan jaringan.</p>
+            </div>
+        </div>
+        <div class="prodi-card">
+            <img src="foto_tsm.jpg" class="prodi-img" alt="TSM">
+            <div class="prodi-info">
+                <h5>TSM (Teknik Sepeda Motor)</h5>
+                <p>Fokus pada pemeliharaan dan perbaikan mesin motor, sistem kelistrikan, dan manajemen bengkel.</p>
+            </div>
+        </div>
+        <div class="prodi-card">
+            <img src="foto_tkr.jpg" class="prodi-img" alt="TKR">
+            <div class="prodi-info">
+                <h5>TKR (Teknik Kendaraan Ringan)</h5>
+                <p>Mempelajari mesin mobil, sistem kemudi, transmisi, dan diagnosa kerusakan mobil modern.</p>
+            </div>
+        </div>
+        <div class="prodi-card">
+            <img src="foto_amp.jpg" class="prodi-img" alt="AMP">
+            <div class="prodi-info">
+                <h5>AMP (Alat Mekanisasi Pertanian)</h5>
+                <p>Pengoperasian dan pemeliharaan alat modern pertanian seperti traktor, combine harvester, dan teknologi irigasi.</p>
+            </div>
+        </div>
+        <div class="prodi-card">
+            <img src="foto_atu.jpg" class="prodi-img" alt="ATU">
+            <div class="prodi-info">
+                <h5>ATU (Agribisnis Ternak Unggas)</h5>
+                <p>Manajemen ternak unggas mulai dari pembibitan, pemberian pakan, hingga pemasaran produk.</p>
+            </div>
+        </div>
+        <div class="prodi-card">
+            <img src="foto_aphp.jpg" class="prodi-img" alt="APHP">
+            <div class="prodi-info">
+                <h5>APHP (Agribisnis Pengolahan Hasil Pertanian)</h5>
+                <p>Mengolah bahan baku pertanian menjadi produk pangan bernilai jual tinggi dan higienis.</p>
+            </div>
+        </div>
+        <div class="prodi-card">
+            <img src="foto_atph.jpg" class="prodi-img" alt="ATPH">
+            <div class="prodi-info">
+                <h5>ATPH (Agribisnis Tanaman Pangan & Hortikultura)</h5>
+                <p>Budidaya tanaman sayur, buah, dan tanaman hias dengan teknologi modern dan hidroponik.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <div class="section">
         <h2 class="section-title">Ekstrakurikuler</h2>
         <div class="ekskul-grid">
             <div class="ekskul-card"><div class="icon-circle">🇮🇩</div><h4>Paskibra</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">⛺</div><h4>Pramuka</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">⛑️</div><h4>PMR</h4></div>
             <div class="ekskul-card"><div class="icon-circle">⚽</div><h4>Futsal</h4></div>
             <div class="ekskul-card"><div class="icon-circle">🏐</div><h4>Voli</h4></div>
             <div class="ekskul-card"><div class="icon-circle">🎸</div><h4>Musik</h4></div>
-            <div class="ekskul-card"><div class="icon-circle">💻</div><h4>IT Club</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">🗣️</div><h4>English Club</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">💃🏻</div><h4>Tari</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">⛺</div><h4>Pramuka</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">🏸</div><h4>Badminton</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">📰</div><h4>Jurnalistik</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">🕌</div><h4>Majelis Taklim</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">⛰️</div><h4>Pecinta Alam</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">🎼</div><h4>Karawitan</h4></div>
+            <div class="ekskul-card"><div class="icon-circle">🔬</div><h4>Karya Ilmiah</h4></div>
         </div>
     </div>
 
-    <footer>
-        <h2 style="color: var(--primary);">Kontak Kami</h2>
-        <p style="font-size: 0.8rem; margin-top: 10px;">Email: smkn1gondang@yahoo.co.id</p>
-        <p style="font-size: 0.8rem;">Telp: (0358) 611 606</p>
-        
-        <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15816.035416049015!2d111.9863456!3d-7.6821369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78345700000001%3A0xc078345700000001!2sSMK%20Negeri%201%20Gondang!5e0!3m2!1sid!2sid!4v1710000000000" allowfullscreen="" loading="lazy"></iframe>
-        
-        <p style="text-align: center; margin-top: 30px; font-size: 0.6rem; opacity: 0.5;">&copy; 2026 Celpiaww Project • SMKN 1 Gondang</p>
-    </footer>
+<footer>
+    <div class="footer-content">
+        <div>
+            <h4 style="color: var(--primary); margin-bottom: 15px;">Hubungi Kami</h4>
+            <p>📧 smkngondang@yahoo.co.id</p>
+            <p>📞 (0358) 611 606</p>
+            <p>📍 Jl. Raya Gondang Lengkong, Balong Rejo, Gondang, Nganjuk.</p>
+        </div>
+        <div class="map-frame">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.084138676632!2d111.9839958147761!3d-7.565863294544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7837d31933907f%3A0x27b81bfcabd888fc!2sSMK%20Negeri%201%20Gondang!5e0!3m2!1sid!2sid!4v1710660000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+    <p style="text-align: center; margin-top: 30px; color: #555; font-size: 0.8rem;">&copy; 2026 SMK Negeri 1 Gondang. Digital Landing Page.</p>
+</footer>
 
 </body>
 </html>
